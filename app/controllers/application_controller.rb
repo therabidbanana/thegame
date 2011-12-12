@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def auth_hash
+      request.env['omniauth.auth']
+    end
+
     def user_signed_in?
       return true if current_user
     end
@@ -26,7 +30,11 @@ class ApplicationController < ActionController::Base
 
     def authenticate_user!
       if !current_user
-        redirect_to root_url, :alert => 'You need to sign in for access to this page.'
+        session[:redirect_to] = request.path
+        redirect_to signin_path, :alert => 'You need to sign in for access to this page.'
+        false
+      else
+        true
       end
     end
 

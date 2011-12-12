@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to '/auth/twitter'
+    # redirect_to '/auth/twitter'
+    render :new
   end
 
 
@@ -10,7 +11,8 @@ class SessionsController < ApplicationController
     user = User.where(:provider => auth['provider'], 
                       :uid => auth['uid']).first || User.create_with_omniauth(auth)
     session[:user_id] = user.id
-    redirect_to root_url, :notice => 'Signed in!'
+    route = session.delete(:redirect_to) || root_url
+    redirect_to route, :notice => 'Signed in!'
   end
 
   def destroy
