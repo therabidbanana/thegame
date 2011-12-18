@@ -1,6 +1,10 @@
 Factory.define(:user) do |user|
-  user.sequence(:uid){ |n| "#{n}" }
-  user.provider "twitter"
+  user.identities{ |i| [i.association(:identity)]}
+end
+
+Factory.define(:identity, :class => User::Identity) do |i|
+  i.sequence(:uid){ |n| "#{n}" }
+  i.provider "twitter"
 end
 
 Factory.define(:user_player, :parent => :user) do |user|
