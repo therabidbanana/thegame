@@ -23,5 +23,12 @@ class User
     end
   end
 
+  def register_player!(params)
+    self.player = Player.new(params)
+    self.roles << :player
+    self.save
+    self.player.save
+    self.player
+  end
 end
 

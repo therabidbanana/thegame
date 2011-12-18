@@ -14,5 +14,9 @@ Feature: Registration
     When I complete registration with username "Foobar Bazington"
     Then I should be on Foobar Bazington's player page
 
+  Scenario: Already have an account
+    Given I am logged in as player foobar
+    When I visit the registration page
+    Then I should be on foobar's player page
 
   

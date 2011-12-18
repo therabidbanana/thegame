@@ -4,6 +4,7 @@ end
 
 When /^I complete registration with username "([^"]*)"$/ do |arg1|
   fill_in "player[username]", :with => arg1
+  click_on "create"
 end
 
 

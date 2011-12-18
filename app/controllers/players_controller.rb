@@ -11,9 +11,19 @@ class PlayersController < ApplicationController
   end
   def create
     if authorize! :create, :player
-      current_user.player = Player.new(params[:player])
-      current_user.roles << :player
-      current_user.save
+      p = current_user.register_player!(params[:player])
+      redirect_to player_path(p)
+    end
+  end
+
+  def show
+    if authorize! :view, :player
+      @player = Player.find(params[:id])
+      if @player
+        render :show
+      else
+        not_found!
+      end
     end
   end
 end

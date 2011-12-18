@@ -28,7 +28,9 @@ class ApplicationController < ActionController::Base
     def user_signed_in?
       return true if current_user
     end
-
+    def not_found!
+      raise ActionController::RoutingError.new('Not Found')
+    end
     def redirect_to_signin
       session[:redirect_to] = request.path
       redirect_to signin_path, :alert => 'You need to sign in for access to this page.'
