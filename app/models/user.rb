@@ -5,6 +5,7 @@ class User
   key :uid, String
   key :name, String
   key :email, String
+  one :player
 
   attr_accessible :provider, :uid, :name, :email
 

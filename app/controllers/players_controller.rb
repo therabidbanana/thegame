@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class PlayersController < ApplicationController
   def new
     if authenticate_user!
       render :new

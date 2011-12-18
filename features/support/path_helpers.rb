@@ -14,7 +14,7 @@ module PathHelpers
     when /(log|sign)\s?in with twitter/
       '/auth/twitter'
     when /(?:|the )registration page/
-      '/users/new'
+      '/players/new'
     else 
       raise "Couldn't find path mapping to: #{string}"
     end
