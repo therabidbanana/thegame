@@ -6,8 +6,15 @@ gem 'thin'
 
 gem "bson_ext"
 gem "mongo_mapper"
+
+gem "cancan"
+gem "role_model"
 gem "omniauth", ">= 1.0.0"
 gem "omniauth-twitter"
+
+gem "mm-sluggable"
+
+
 gem "slim"
 gem "slim-rails"
 gem "html5-slim-rails"

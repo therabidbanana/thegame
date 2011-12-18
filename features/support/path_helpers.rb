@@ -15,6 +15,9 @@ module PathHelpers
       '/auth/twitter'
     when /(?:|the )registration page/
       '/players/new'
+    when /(.+)'s player page$/
+      p = Player.where(:username => $1).first
+      player_path(p)
     else 
       raise "Couldn't find path mapping to: #{string}"
     end

@@ -9,7 +9,15 @@ class ApplicationController < ActionController::Base
       begin
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
       rescue Exception
-        nil
+      end
+      @current_user ||= User.new
+    end
+
+    def authorize!(*args)
+      if current_user.can?(*args)
+        true
+      else
+        false
       end
     end
 
@@ -21,13 +29,10 @@ class ApplicationController < ActionController::Base
       return true if current_user
     end
 
-    def correct_user?
-      @user = User.find(params[:id])
-      unless current_user == @user
-        redirect_to root_url, :alert => "Access denied."
-      end
+    def redirect_to_signin
+      session[:redirect_to] = request.path
+      redirect_to signin_path, :alert => 'You need to sign in for access to this page.'
     end
-
     def authenticate_user!
       if !current_user
         session[:redirect_to] = request.path

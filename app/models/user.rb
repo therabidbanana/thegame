@@ -7,6 +7,9 @@ class User
   key :email, String
   one :player
 
+  # Include roles and initializing cancan
+  include User::Authorizable
+
   attr_accessible :provider, :uid, :name, :email
 
   def self.create_with_omniauth(auth)

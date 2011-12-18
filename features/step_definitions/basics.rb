@@ -4,4 +4,7 @@ end
 When /^I visit (.*)$/ do |path|
   visit(path_for(path))
 end
+Then /^I should be on (.+)$/ do |path|
+  current_path.should == path_for(path)
+end
 

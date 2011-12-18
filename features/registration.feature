@@ -11,4 +11,8 @@ Feature: Registration
     And I sign in with twitter
     Then I should see "Welcome new user"
 
+    When I complete registration with username "Foobar Bazington"
+    Then I should be on Foobar Bazington's player page
+
+
   

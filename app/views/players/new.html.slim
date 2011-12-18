@@ -1,2 +1,8 @@
 h1 Welcome new user
 p You're almost finished signing up for the game. 
+= form_for(@player, :method => "post") do |f|
+  p 
+    | What would you like your username on the site to be?
+    = f.text_field :username, :placeholder => "username"
+  = f.submit :create
+
