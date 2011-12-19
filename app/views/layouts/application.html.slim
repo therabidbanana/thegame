@@ -15,12 +15,13 @@ head
   == render "head"
 
 body class=controller.controller_name
-  #container
-    header#header
+  #container.container
+
+    header#header.topbar
       == render "header"
       
-    #main role='main'
-      == render "flashes"
+    == render "flashes"
+    .content
       == yield
     footer#footer
       == render "footer"

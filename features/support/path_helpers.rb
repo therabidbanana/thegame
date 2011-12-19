@@ -15,6 +15,8 @@ module PathHelpers
       '/auth/twitter'
     when /(?:|the )registration page/
       '/players/new'
+    when /(?:|the )new post page/
+      '/posts/new'
     when /(.+)'s player page$/
       p = Player.find_by_username($1)
       player_path(p)

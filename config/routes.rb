@@ -1,7 +1,10 @@
 Thegame::Application.routes.draw do
   root :to => "home#index"
 
-  resources :players
+  resources :players do
+    resources :posts, :only => [:index, :show]
+  end
+  resources :posts
 
   match '/auth/:provider/callback' => 'sessions#create'
 

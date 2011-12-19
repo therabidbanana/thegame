@@ -1,0 +1,12 @@
+.page-header
+  h1 Create a New Post
+= form_for(@post, :method => "post") do |f|
+  .clearfix
+    = f.label :title
+    .input= f.text_field :title, :placeholder => "Title", :class => "xlarge"
+  .clearfix
+    label Body
+    .input= f.text_area :body, :class => "xxlarge"
+  .actions
+    = f.submit :create, :class => "btn primary large"
+

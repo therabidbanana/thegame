@@ -5,10 +5,13 @@ class Player
     user ? user : super(user_or_id)
   end
 
-  plugin MongoMapper::Plugins::Sluggable
   belongs_to :user
+  many :posts
+
+  plugin MongoMapper::Plugins::Sluggable
   key :username, String
   sluggable :username, :index => false
+
   def to_param
     slug
   end

@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.new
     end
 
+    def current_player
+      current_user.player
+    end
+
     def authorize!(*args)
       if current_user.can?(*args)
         true
