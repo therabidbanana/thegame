@@ -7,6 +7,11 @@ module User::Identifiable
       def self.create_with_omniauth(auth)
         user = User.new
         user.identities = []
+        auth = {
+          :provider => auth['provider'],
+          :uid => auth['uid'],
+          :info => auth['info']
+        }
         user.identities << User::Identity.new(auth)
         user.save
         user

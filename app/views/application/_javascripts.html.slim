@@ -1,16 +1,11 @@
 / Grab Google CDN's jQuery, with a protocol relative URL
 / Looks for google_api_key first in ENV['GOOGLE_API_KEY'] then in config/google.yml
 / remote_jquery and local_jquery helpers use minified jquery unless Rails.env is development
-/ - if !google_api_key.blank?
-/   = javascript_include_tag "//www.google.com/jsapi?key=#{google_api_key}"
-/   :javascript
-/     google.load(#{ remote_jquery("1.6") });
-/ - else
-/   = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/#{ local_jquery("1.6") }"
+= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/#{ local_jquery("1.7") }"
 
 / fall back to local jQuery if necessary
-/ :javascript
-/   window.jQuery || document.write("<script src='/javascripts/jquery.min.js'>\x3C/script>")
+javascript:
+  window.jQuery || document.write("<script src='/javascripts/jquery.min.js'>\x3C/script>")
   
 = javascript_include_tag "application"
     

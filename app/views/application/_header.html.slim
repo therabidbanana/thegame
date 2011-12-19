@@ -1,10 +1,18 @@
 .topbar-inner
   .container-fluid
     h3
-      a.brand The Game
+      a.brand href=root_path The Game
+
     ul.nav.secondary-nav
-      li.dropdown
-        a Foo
-        ul.dropdown-menu
-          li
-            a Foo
+      - if current_user.is? :player
+        li.dropdown data-dropdown="dropdown"
+          a.dropdown-toggle= current_user.player.username
+          ul.dropdown-menu
+            li
+              a href=signout_path Sign Out
+      - elsif current_user.is? :user
+        li.dropdown data-dropdown="dropdown"
+          a href=new_player_path Sign Up
+      -else
+        li
+          a href=signin_path Sign In
