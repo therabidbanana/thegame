@@ -8,3 +8,4 @@ Feature: Make Posts
     When I visit the new post page
     And I create a new post titled "Foobar Baz" with text "Test"
     Then I should see a new post saying "Foobar Baz"
+

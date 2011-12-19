@@ -8,3 +8,13 @@ Then /^I should see a new post saying "([^"]*)"$/ do |arg1|
   page.should have_css(selector_for("post"), :text => arg1)
 end
 
+Given /^there are (\d+) posts$/ do |arg1|
+  user = Factory(:user_player)
+  (0...Integer(arg1)).each do |i|
+    Post.create!(:player => user.player, :title => "foobar", :body => "baz")
+  end
+end
+
+Then /^I should see (\d+) posts$/ do |arg1|
+  page.should have_css(selector_for("post"), :count => Integer(arg1))
+end

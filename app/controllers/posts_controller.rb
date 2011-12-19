@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.all(:limit => 10, :order => :created_at.desc)
+  end
   def new
     if authorize! :create, :post
       @post = Post.new
