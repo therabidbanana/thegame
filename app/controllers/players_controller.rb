@@ -20,6 +20,7 @@ class PlayersController < ApplicationController
     if authorize! :view, :player
       @player = Player.find(params[:id])
       if @player
+        @posts = Post.where(:player_id => @player.id).all(:limit => 10, :order => :created_at.desc)
         render :show
       else
         not_found!

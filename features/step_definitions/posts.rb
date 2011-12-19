@@ -15,6 +15,6 @@ Given /^there are (\d+) posts$/ do |arg1|
   end
 end
 
-Then /^I should see (\d+) posts$/ do |arg1|
+Then /^I should see (\d+) posts?$/ do |arg1|
   page.should have_css(selector_for("post"), :count => Integer(arg1))
 end

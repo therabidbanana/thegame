@@ -1,1 +1,5 @@
-h1 Player #{@player.username}
+.sidebar
+  h1 Player #{@player.username}
+.content
+  - @posts.each do |post|
+    = render 'posts/single', {:post => post}
