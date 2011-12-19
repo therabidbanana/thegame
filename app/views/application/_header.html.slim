@@ -9,7 +9,11 @@
           a.dropdown-toggle= current_user.player.username
           ul.dropdown-menu
             li
+              a href=new_post_path New Post
+            li.divider
+            li
               a href=signout_path Sign Out
+
       - elsif current_user.is? :user
         li.dropdown data-dropdown="dropdown"
           a href=new_player_path Sign Up

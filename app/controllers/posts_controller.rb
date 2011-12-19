@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def create
     if authorize! :create, :post
       @post = Post.create!(params[:post].merge(:player => current_player))
-      redirect_to post_path(@post)
+      redirect_to player_path(current_user.player)
     end
   end
 
