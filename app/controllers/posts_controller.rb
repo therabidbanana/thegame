@@ -19,7 +19,13 @@ class PostsController < ApplicationController
   end
   def create
     if authorize! :create, :post
-      @post = Post.create!(params[:post].merge(:player => current_player))
+      attaches = params.delete( :attachments )
+      @post = Post.new(params[:post].merge(:player => current_player))
+      attaches.each do |p|
+        @post.attachments.build(p)
+      end unless attaches.blank?
+      @post.save
+
       redirect_to player_path(current_user.player)
     end
   end

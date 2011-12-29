@@ -8,3 +8,6 @@ Then /^I should be on (.+)$/ do |path|
   current_path.should == path_for(path)
 end
 
+Then /^show me the page/ do
+  save_and_open_page
+end

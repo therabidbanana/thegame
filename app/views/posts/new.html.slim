@@ -1,12 +1,16 @@
 .page-header
   h1 Create a New Post
-= form_for(@post, :method => "post") do |f|
+= form_for(@post, :method => "post", :html => { :multipart => true }) do |f|
   .clearfix
     = f.label :title
     .input= f.text_field :title, :placeholder => "Title", :class => "xlarge"
   .clearfix
     label Body
     .input= f.text_area :body, :class => "xxlarge"
+  .clearfix
+    label Attachments
+    .input
+      input type="file" name="attachments[][attachment]"
   .actions
     = f.submit :create, :class => "btn primary large"
 
