@@ -1,13 +1,11 @@
-defaults: &defaults
+development:
   host: 127.0.0.1
   port: 27017
-
-development:
-  <<: *defaults
   database: thegame_development
 
 test:
-  <<: *defaults
+  host: 127.0.0.1
+  port: 27017
   database: thegame_test
 
 # set these environment variables on your prod server
