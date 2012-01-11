@@ -6,4 +6,4 @@ test:
 
 # set these environment variables on your prod server
 production:
-  uri: <%= ENV['MONGOHQ_URL'] || "mongodb://example.com:27017/thegame_fail" %>
+  uri: <%= ENV['MONGOHQ_URL']  %>
