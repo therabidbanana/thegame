@@ -6,6 +6,7 @@ Thegame::Application.routes.draw do
   resources :posts
   root :to => 'posts#index'
 
+  match '/auth/:provider' => 'sessions#passthru'
   match '/auth/:provider/callback' => 'sessions#create'
 
   match '/signin' => 'sessions#new', :as => :signin
