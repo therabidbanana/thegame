@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def passthru
+    warn ENV['TWITTER_KEY']
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
