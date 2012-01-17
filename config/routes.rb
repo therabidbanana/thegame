@@ -6,14 +6,14 @@ Thegame::Application.routes.draw do
   resources :posts
   root :to => 'posts#index'
 
-  # match '/auth/:provider' => 'sessions#passthru'
-  match '/auth/:provider/callback' => 'sessions#create'
+  match 'auth/:provider' => 'sessions#passthru'
+  match 'auth/:provider/callback' => 'sessions#create'
 
-  match '/signin' => 'sessions#new', :as => :signin
+  match 'signin' => 'sessions#new', :as => :signin
 
-  match '/signout' => 'sessions#destroy', :as => :signout
+  match 'signout' => 'sessions#destroy', :as => :signout
 
-  match '/auth/failure' => 'sessions#failure'
+  match 'auth/failure' => 'sessions#failure'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
