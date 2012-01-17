@@ -15,6 +15,7 @@ gem "omniauth-twitter"
 gem "mm-sluggable"
 
 gem 'rack-cache', :require => 'rack/cache'
+gem 'dalli'
 gem 'dragonfly', '~>0.9.8'
 gem 'fog'
 
