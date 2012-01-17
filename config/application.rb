@@ -59,4 +59,3 @@ module Thegame
   end
 end
 
-require 'env_yaml'
