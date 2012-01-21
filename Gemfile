@@ -38,4 +38,5 @@ group :test do
   gem "capybara", ">= 1.1.2"
   gem "database_cleaner", ">= 0.7.0"
   gem "launchy", ">= 2.0.5"
+  gem 'simplecov', :require => false
 end
